@@ -6,23 +6,23 @@
  */
 void write_buffer(variable_t *vary)
 {
-  unsigned int current, prev;
-  char *_temp;
+	unsigned int current, prev;
+	char *_temp;
 
-  if(vary->buff)
-    {
-      vary->buff[vary->buf_idx++] = vary->a;
-      if((vary->buf_idx + 1) % BUFFSIZE == 0)
+	if(vary->buff)
 	{
-	  prev = vary->buf_idx + 1;
-	  current = prev + BUFFSIZE;
-	  temp = malloc(sizeof(char) * new);
-	    if (!temp)
-	      vary->error = 1;
-	    else
-	      bary->buffer = _temp;
+		vary->buff[vary->buf_idx++] = vary->a;
+		if((vary->buf_idx + 1) % BUFFSIZE == 0)
+		{
+			prev = vary->buf_idx + 1;
+			current = prev + BUFFSIZE;
+			temp = malloc(sizeof(char) * new);
+			if (!temp)
+				vary->error = 1;
+			else
+				bary->buffer = _temp;
+		}
 	}
-    }
 }
 
 /**
@@ -32,12 +32,12 @@ void write_buffer(variable_t *vary)
  */
 void put_buffer(variable_t *vary, char *s)
 {
-  int i, j;
+	int i, j;
 
-  i = _strlen(str);
-  for (j = 0; j < i; j++)
-    {
-      vary-> a = str[j];
-      write_buffer(vary);
-    }
+	i = _strlen(str);
+	for (j = 0; j < i; j++)
+	{
+		vary-> a = str[j];
+		write_buffer(vary);
+	}
 }
