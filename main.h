@@ -70,6 +70,7 @@ void put_buffer(variable_t *vary, char *s);
 /*string functions*/
 int rev_string(__attribute__((unused))char *s);
 int _strlen(char *s);
+int _strlenconstant(const char *s);
 int _putchar(char *s);
 int _putmod(__attribute__((unused))char *s, unsigned int i);
 

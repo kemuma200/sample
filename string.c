@@ -65,7 +65,7 @@ int _putmod(__attribute__((unused))char *s, unsigned int i)
  *@s: string
  *Return: length of string
  */
-int _strlenconstant(char *s)
+int _strlenconstant(const char *s)
 {
   int len;
 
