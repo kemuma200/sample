@@ -1,11 +1,8 @@
 #include "main.h"
 
 /**
- *
- *
- *
- *
- *
+ *p_hexstring - writes string to buffer
+ *@vary: args
  */
 void p_hexstring(variable_t *vary)
 {
@@ -49,11 +46,8 @@ void p_hexstring(variable_t *vary)
 }
 
 /**
- *
- *
- *
- *
- *
+ *p_pointer - writes pointer value to buffer in hex
+ *@vary: args list
  */
 void p_pointer(variable_t *vary)
 {

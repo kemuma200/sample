@@ -1,9 +1,11 @@
 #include "main.h"
 
 /**
- *
- *
- *
+ *print_hex -
+ *@vary:
+ *@i:
+ *@hexcase:
+ *@size:
  */
 void print_hex(variable_t *vary, unsigned long int i, int hexcase, int size)
 {

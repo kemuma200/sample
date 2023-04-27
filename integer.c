@@ -1,10 +1,9 @@
 #include "main.h"
 
 /**
- *
- *
- *
- *
+ *print_int -
+ *@vary:
+ *@n:
  */
 void print_int(variable_t *vary, long int n)
 {
@@ -53,9 +52,8 @@ void print_int(variable_t *vary, long int n)
 }
 
 /**
- *
- *
- *
+ *x_int -
+ *@vary:
  */
 void x_int(variable_t *vary)
 {
@@ -66,10 +64,8 @@ void x_int(variable_t *vary)
 
 
 /**
- *
- *
- *
- *
+ *x_longint -
+ *@vary:
  */
 void x_longint(variable_t *vary)
 {

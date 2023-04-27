@@ -6,8 +6,8 @@
  */
 void p_char(variable_t *vary)
 {
-  vary->a = va_arg(*(vary->ap), int);
-  write_buffer(vary);
+	vary->a = va_arg(*(vary->ap), int);
+	write_buffer(vary);
 }
 
 /**
@@ -16,12 +16,11 @@ void p_char(variable_t *vary)
  */
 void p_percent(variable_t *vary)
 {
-  vary->a = '%';
-  if (vary->space)
-  {
-    vary->space = 0;
-    vary->buff[--(vary->buf_idx)] = '\0';
-
-  }
-  write_buffer(vary);
+	vary->a = '%';
+	if (vary->space)
+	{
+		vary->space = 0;
+		vary->buff[--(vary->buf_idx)] = '\0';
+	}
+	write_buffer(vary);
 }

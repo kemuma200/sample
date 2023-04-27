@@ -1,10 +1,8 @@
 #include "main.h"
 
 /**
- *
- *
- *
- *
+ *p_string - outputs string to buffer
+ *@vary: args
  */
 void p_string(variable_t *vary)
 {
