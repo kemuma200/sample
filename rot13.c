@@ -1,0 +1,44 @@
+#include "main.h"
+
+/**
+ *
+ *
+ *
+ */
+void p_rot13(variable_t *vary)
+{
+  int i, j, k;
+  char *letters, *_rot13, *p, *cpy;
+
+  letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  _rot13 = "";
+  p = va_arg(*(vary->arg), char *);
+  if (k == p)
+    k = _strlen(str);
+  else
+    k = 0;
+
+  if (l)
+    {
+      cpy = malloc(sizeof(char) * (l + 1));
+
+      for (j = 0; p[j] != '\0'; j++)
+	{
+	  for (i = 0; i < 52; i++)
+	    {
+	      if (p[j] == letters[i]
+		{
+		  cpy[j] = p[i];
+		  break;
+		}
+	    }
+	      if ( j == 52)
+		cpy[i] = p[i];
+	}
+	  puts_buffer(vary. cpy);
+	  free(cpy;
+    }
+	    
+
+  
+}
