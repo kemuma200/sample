@@ -31,6 +31,8 @@
  *@space:checks if spce has been printed
  *@error: 1 if error, 0 otherwise
  *@ap: args list
+ *@width: width
+ *@precision: precision
  */
 typedef struct _variables
 {
@@ -46,6 +48,8 @@ typedef struct _variables
 	char d;
 	int flag;
 	int space;
+	int width;
+	int precision;
 } variable_t;
 
 /**
