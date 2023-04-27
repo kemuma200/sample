@@ -11,7 +11,7 @@ void p_hexstring(variable_t *vary)
 
 	_hexvalues = "0123456789ABCDEF";
 	_stringnull = "(null)";
-	p = va_arg(*(vary->ap), char*);
+	_p = va_arg(*(vary->ap), char*);
 
 	if (!_p)
 	{
@@ -33,13 +33,13 @@ void p_hexstring(variable_t *vary)
 			}
 			else
 			{
-				_temp[2] = _hexvalues[(num / 16) % 16];
-				_temp[3] = _hexvalues[num % 16];
-				put_buffer(vary, _temp);
+				_tmp[2] = _hexvalues[(num / 16) % 16];
+				_tmp[3] = _hexvalues[num % 16];
+				put_buffer(vary, _tmp);
 			}
 			i++;
 		}
-		free(temp);
+		free(_tmp);
 	}
 }
 
@@ -54,7 +54,7 @@ void p_pointer(variable_t *vary)
 	char *_hex, *_stringnull, *_hexvalues, *_cpy;
 	void *p;
 
-	p = va_args(*(vary->ap), void *);
+	p = va_arg(*(vary->ap), void *);
 	_hexvalues = "0123456789abcdef";
 	_stringnull = "(nil)";
 
@@ -63,9 +63,9 @@ void p_pointer(variable_t *vary)
 		_hex = malloc( sizeof(char) * 13);
 		put_buffer(vary, "0x");
 		p_val = (unsigned long int)p;
-		for (n = 0; p_val; n++, p_val % 16)
-			_hex[n] = _hexvalues[p % 16];
-		_cpy = malloc(sizeof(char) * (i + 1));
+		for (n = 0; p_val; n++, p_val /= 16)
+			_hex[n] = _hexvalues[p_val % 16];
+		_cpy = malloc(sizeof(char) * (n + 1));
 		for (m = 0, n = n - 1; n >= 0; m++, n--)
 			_cpy[m] = _hex[n];
 		put_buffer(vary, _cpy);

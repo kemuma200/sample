@@ -13,6 +13,8 @@
 #define BUFFSIZE 1024
 #define _lowhex 0
 #define _uphex 1
+#define TRUE (1 == 1)
+#define FALSE !TRUE
 
 /*struct section*/
 /**
@@ -54,7 +56,7 @@ typedef struct _variables
 typedef struct parser
 {
 	char p;
-	int (*func)(__attribute__((unused))variable_t *vary);
+	void (*func)(variable_t *vary);
 
 } parser_t;
 

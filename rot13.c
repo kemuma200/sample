@@ -11,16 +11,13 @@ void p_rot13(variable_t *vary)
 	char *letters, *_rot13, *p, *cpy;
 
 	letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
-	_rot13 = "";
-	p = va_arg(*(vary->arg), char *);
-	if (k == p)
-		k = _strlen(str);
-	else
-		k = 0;
+	_rot13 = "nopqrstuvwxyzabcdefghijklmNOPQRSTUVWXYZABCDEFGHIJKLM";
+	p = va_arg(*(vary->ap), char *);
+	k = p ? _strlen(p) : 0;
 
 	if (k)
 	{
-		cpy = malloc(sizeof(char) * (l + 1));
+		cpy = malloc(sizeof(char) * (k + 1));
 
 		for (j = 0; p[j] != '\0'; j++)
 		{
@@ -28,14 +25,14 @@ void p_rot13(variable_t *vary)
 			{
 			  if (p[j] == letters[i])
 				{
-					cpy[j] = p[i];
+					cpy[j] = _rot13[i];
 					break;
 				}
 			}
-			if ( j == 52)
+			if (j == 52)
 				cpy[i] = p[i];
 		}
-		puts_buffer(vary, cpy);
+		put_buffer(vary, cpy);
 		free(cpy);
 	}
 

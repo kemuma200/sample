@@ -35,10 +35,10 @@ void print_int(variable_t *vary, long int n)
 			cpy /= 10, size *= 10;
 		while (size > 0)
 		{
-			f = i / size;
+			f = n / size;
 			vary->b = ('0' + f);
 			write_buffer(vary);
-			i -= f * size;
+			n -= f * size;
 			size /= 10;
 		}
 		vary->a = ('0' + digit1);
@@ -66,5 +66,5 @@ void x_longint(variable_t *vary)
 {
 	long int i;
 	i = va_arg(*(vary->ap), long int);
-	print_int(vary, n);
+	print_int(vary, i);
 }

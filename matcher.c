@@ -7,20 +7,20 @@
  */
 void (*matcher(variable_t *vary))(variable_t *vary)
 {
-	int i, j;
+	int i = 0, j = 0;
 	char cmp = vary->b;
 	static parser_t specifiers[] = {
 				  {'c',p_char},{'s',p_string}, {'%', p_percent},
-				  {'d',x_int}, {'i', x_int}, {'b', p_binary},
+				  {'d',x_int}, {'i', x_int}, {'b', p_bin},
 				  {'u', x_longint}, {'o', x_oct}, {'x', x_lowhex},
 				  {'X', x_uphex}, {'p', p_pointer}, {'r', p_revstring},
-				  {'R', p_rot13}, {'S', p_hexstring}, {NULL, NULL}
+				  {'R', p_rot13}, {'S', p_hexstring}, {'\0', NULL}
   };
-	static const char mod = "h1+#-0";
+	static const char mod[] = "h1+#-0";
 	static parser_t _longmodifiers[] = {
 				      {'d', x_longint}, {'i', x_longint}, {'x', x_longlowhex},
 				      {'X', x_longuphex}, {'o', x_longoct}, {'u', x_ulongint},
-				      {NULL, NULL}
+				      {'\0', NULL}
   };
 	while (mod[j] != '\0')
 	{
@@ -29,13 +29,13 @@ void (*matcher(variable_t *vary))(variable_t *vary)
 	}
 	while (TRUE)
 	{
-		if (specifiers[i].ch == '\0')
+		if (specifiers[i].p == '\0')
 		{
 			if (vary->flag)
 				vary->i++;
 			return (NULL);
 		}
-		if (specifiers[i].ch == cmp)
+		if (specifiers[i].p == cmp)
 		{
 			if (vary->flag)
 				vary-> i += 2;
@@ -43,8 +43,8 @@ void (*matcher(variable_t *vary))(variable_t *vary)
 				vary->i++;
 			if (vary->b == 'l')
 				return (_longmodifiers[i].func);
-			return (specofoers[i].func);
+			return (specifiers[i].func);
 		}
-		i++;
+		j++;
 	}
 }

@@ -23,7 +23,7 @@ void p_revstring(variable_t *vary)
 		cpy = malloc((len + 1) * sizeof(char));
 		for (i = len - 1, j = 0; i >= 0; i--, j++)
 			cpy[j] = p[i];
-		puts_buffer(vary, cpy);
+		put_buffer(vary, cpy);
 		free(cpy);
 	}
 }

@@ -8,7 +8,7 @@
  */
 int _printf(const char *format, ...)
 {
-	int i = 0, count = 0;
+	int count = 0;
 	va_list ap;
 	variable_t *vary;
 	void (*temp_func)(variable_t *);
@@ -21,17 +21,18 @@ int _printf(const char *format, ...)
 
 	while (vary && format[vary->i] && !vary->error)
 	{
-		inv->a = format[inv->i];
-		if (vary->a != '%')
-			write_buffer(vary);
+		vary->a = format[vary->i];
 		count++;
-
+		if (vary->a != '%')
+		{
+			write_buffer(vary);
+		}
 		else
 		{
-			parse_specifiers(vary);
-			t_func = matcher(vary);
-			if (t_func)
-				t_func(vary);
+			parse_specifier(vary);
+			temp_func = matcher(vary);
+			if (temp_func)
+				temp_func(vary);
 			else if(vary->b)
 			{
 				if(vary->flag)
@@ -41,7 +42,7 @@ int _printf(const char *format, ...)
 			else
 			{
 				if(vary->space)
-					vary->buffer[--(inv->buf_idx)];
+					vary->buff[--(vary->buf_idx)] = '\0';
 				vary->error = 1;
 
 			}

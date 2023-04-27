@@ -11,7 +11,7 @@ void print_oct(variable_t *vary, unsigned long int i, int size)
 	int m, n;
 	char *oct, *cpy;
 
-	if(n)
+	if(i)
 	{
 		oct = malloc (size * sizeof(char));
 		if (oct)
@@ -70,5 +70,5 @@ void x_longoct(variable_t *vary)
 {
 	unsigned int k;
 	k = va_arg(*(vary->ap), unsigned long int);
-	print_oct(vary, k, 23
+	print_oct(vary, k, 23);
 }

@@ -18,7 +18,7 @@ int rev_string(__attribute__((unused))char *s)
 	{
 		_temp = s[i];
 		s[i] = s[len - i - 1];
-		s[len - i - 1] = _temp
+		s[len - i - 1] = _temp;
 	}
 	return (0);
 }
