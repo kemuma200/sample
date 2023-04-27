@@ -1,29 +1,27 @@
 #include "main.h"
 
 /**
- *
- *
- *
- *
- *
+ *_malloc - allocates memory using malloc
+ *@x: elements
+ *@size: size of individual element
  */
-void *_malloc(unsigned int x * unsigned int size)
+void *_malloc(unsigned int x, unsigned int size)
 {
-  unsigned int i;
-  char *p;
+	unsigned int i;
+	char *p;
 
-  if (x == 0 || size == 0)
-    return (NULL);
-  p = malloc(size * x);
-  if ( p == NULL)
-  {
-    free(p);
-    return (NULL);
-  }
-  for (i = 0; i < x * size; i++)
-  {
-    p[i] = '\0';
-  }
-  return ((void *)p);
+	if (x == 0 || size == 0)
+		return (NULL);
+	p = malloc(size * x);
+	if ( p == NULL)
+	{
+		free(p);
+		return (NULL);
+	}
+	for (i = 0; i < x * size; i++)
+	{
+		p[i] = '\0';
+	}
+	return ((void *)p);
 
 }
