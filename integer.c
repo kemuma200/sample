@@ -17,7 +17,7 @@ void print_int(variable_t *vary, long int n)
 
 	if (digit1 < 0)
 	{
-		digit1 *= -1. cpy *= -1, n *= -1;
+	  digit1 *= -1, cpy *= -1, n *= -1;
 		vary->a = '-';
 		if (vary->space)
 			vary->space = 0, vary->buf_idx--;
@@ -33,21 +33,16 @@ void print_int(variable_t *vary, long int n)
 	{
 		while (cpy / 10 != 0)
 			cpy /= 10, size *= 10;
-			while (size > 0)
-			{
-				if (cpy  / 10 != 0)
-					cpy /=10 , size *=10;
-					if (size > 0)
-					{
-						f = i / size;
-						vary->b = ('0' + f);
-						write_bufffer(vary);
-						i -= f * size;
-						size /= 10;
-					}
-			}
-			vary->a = ('0' + digit1);
+		while (size > 0)
+		{
+			f = i / size;
+			vary->b = ('0' + f);
 			write_buffer(vary);
+			i -= f * size;
+			size /= 10;
+		}
+		vary->a = ('0' + digit1);
+		write_buffer(vary);
 	}
 }
 
@@ -58,8 +53,8 @@ void print_int(variable_t *vary, long int n)
 void x_int(variable_t *vary)
 {
 	int i;
-	i = var_arg(*(vary->ap), int);
-	print_int(vary, (long int)n;
+	i = va_arg(*(vary->ap), int);
+	print_int(vary, (long int)i);
 }
 
 
@@ -70,6 +65,6 @@ void x_int(variable_t *vary)
 void x_longint(variable_t *vary)
 {
 	long int i;
-	i = var_arg(*(vary->ap), long int);
+	i = va_arg(*(vary->ap), long int);
 	print_int(vary, n);
 }

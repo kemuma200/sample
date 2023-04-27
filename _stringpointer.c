@@ -6,16 +6,16 @@
  */
 void p_hexstring(variable_t *vary)
 {
-	int i, num;
+	int i = 0, num;
 	char *_p, *_tmp, *_hexvalues, *_stringnull;
 
 	_hexvalues = "0123456789ABCDEF";
 	_stringnull = "(null)";
 	p = va_arg(*(vary->ap), char*);
 
-	if (!p)
+	if (!_p)
 	{
-		p = _stringnull;
+		_p = _stringnull;
 		put_buffer(vary, _stringnull);
 	}
 	else
@@ -23,9 +23,9 @@ void p_hexstring(variable_t *vary)
 		_tmp = malloc(sizeof(char) * 5);
 		_tmp[0] = 92;
 		_tmp[1] = 'x';
-		while (p[i] != '\0')
+		while (_p[i] != '\0')
 		{
-			num = p[i];
+			num = _p[i];
 			if (num > 31 && num < 127)
 			{
 				vary->a = num;
@@ -64,13 +64,13 @@ void p_pointer(variable_t *vary)
 		put_buffer(vary, "0x");
 		p_val = (unsigned long int)p;
 		for (n = 0; p_val; n++, p_val % 16)
-			_hex[i] = hexvalues[ pointer_value % 16];
+			_hex[n] = _hexvalues[p % 16];
 		_cpy = malloc(sizeof(char) * (i + 1));
-		for (m = 0; n = n - 1; n >= 0; m++, n--)
+		for (m = 0, n = n - 1; n >= 0; m++, n--)
 			_cpy[m] = _hex[n];
-		put_buffer(vary, cpy);
-		free(cpy);
-		free(hex);
+		put_buffer(vary, _cpy);
+		free(_cpy);
+		free(_hex);
 	}
 	else
 		put_buffer(vary, _stringnull);

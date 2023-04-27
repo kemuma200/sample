@@ -50,8 +50,8 @@ void x_uint(variable_t *vary)
  */
 void x_ulongint(variable_t *vary)
 {
-	unisgned long int i;
+	unsigned long int i;
 
-	i = va_arg(*(vary->ap), unigned long int);
-	print_unsigned(vary, n);
+	i = va_arg(*(vary->ap), unsigned long int);
+	print_unsigned(vary, i);
 }

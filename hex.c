@@ -21,7 +21,7 @@ void print_hex(variable_t *vary, unsigned long int i, int hexcase, int size)
 		if (vary->b == '#')
 		{
 			c_old = oldset[hexcase];
-			puts_buffer(inv, (char *)c_old);
+			put_buffer(vary, (char *)c_old);
 		}
 		hex = malloc(size * sizeof(char));
 		if (hex)
@@ -33,7 +33,7 @@ void print_hex(variable_t *vary, unsigned long int i, int hexcase, int size)
 			{
 	    			for (n = 0, m = m - 1; m >= 0; n++, m--)
 					cpy[n] = hex[m];
-				puts_buffer(vary, cpy);
+				put_buffer(vary, cpy);
 				free(cpy);
 			}
 			else

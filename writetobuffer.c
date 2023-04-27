@@ -16,11 +16,11 @@ void write_buffer(variable_t *vary)
 		{
 			prev = vary->buf_idx + 1;
 			current = prev + BUFFSIZE;
-			temp = malloc(sizeof(char) * new);
-			if (!temp)
+			_temp = malloc(sizeof(char) * current);
+			if (!_temp)
 				vary->error = 1;
 			else
-				bary->buffer = _temp;
+				vary->buff = _temp;
 		}
 	}
 }
@@ -34,10 +34,10 @@ void put_buffer(variable_t *vary, char *s)
 {
 	int i, j;
 
-	i = _strlen(str);
+	i = _strlen(s);
 	for (j = 0; j < i; j++)
 	{
-		vary-> a = str[j];
+		vary-> a = s[j];
 		write_buffer(vary);
 	}
 }

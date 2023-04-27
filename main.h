@@ -4,7 +4,7 @@
 /*standard libraries*/
 #include <stdio.h>
 #include <stddef.h>
-#include <stdargs.h>
+#include <stdarg.h>
 #include <unistd.h>
 #include <limits.h>
 #include <stdlib.h>
@@ -63,7 +63,7 @@ int _printf(const char *format, ...);
 variable_t *init_variable(va_list *ap, const char *format);
 
 /*memory allocation*/
-void *_malloc(unsigned int x * unsigned int size);
+void *_malloc(unsigned int x, unsigned int size);
 void write_buffer(variable_t *vary);
 void put_buffer(variable_t *vary, char *s);
 
@@ -105,8 +105,8 @@ void p_percent(variable_t *vary);
 void p_bin(variable_t *vary);
 
 /*matching*/
-void (*matcher)(variable_t *vary)(variable_t *vary);
-void parse_specifier(variable_s *vary);
+void (*matcher(variable_t *vary))(variable_t *vary);
+void parse_specifier(variable_t *vary);
 
 
 #endif

@@ -20,7 +20,7 @@ variable_t *init_variable(va_list *ap, const char *format)
 		vary->i = 0;
 		vary->flag = 0;
 		if (!vary->buff)
-			vary->vary->error = 1;
+			vary->error = 1;
 		else
 			vary->error = 0;
 	}
